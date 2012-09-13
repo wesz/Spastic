@@ -152,8 +152,8 @@ var game =
 		{
 			entries:
 			[
-				{ label: 'load music from hard drive', click: function() { } },
-				{ label: 'load music from URL', click: function() { var url = prompt('Enter URL to mp3 file'); if (url !== null && url != '') game.load(url); } }
+				{ label: 'load music from hard drive', click: function() { } }/*,
+				{ label: 'load music from URL', click: function() { var url = prompt('Enter URL to mp3 file'); if (url !== null && url != '') game.load(url); } }*/
 			]
 		},
 		{
