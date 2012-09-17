@@ -411,10 +411,35 @@ var game =
 
 			this.proc[i].onaudioprocess = this.process_track[i];
 
-			this.source[i].buffer = this.context[i].createBuffer(buffer, false);
+			//this.source[i].buffer = this.context[i].createBuffer(buffer, false);
+
+			if (i == 0)
+			{
+				this.context[i].decodeAudioData(buffer, function(b)
+				{
+					game.source[0].buffer = b;
+				}, function(err)
+				{
+
+				});
+			} else
+			{
+				this.context[i].decodeAudioData(buffer, function(b)
+				{
+					game.source[1].buffer = b;
+
+					game.ready_track();
+				}, function(err)
+				{
+
+				});
+			}
+
 			this.source[i].loop = false;
 		}
-
+	},
+	ready_track: function()
+	{
 		this.state = 'game';
 
 		this.source[0].noteOn(0);
