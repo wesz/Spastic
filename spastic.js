@@ -431,7 +431,7 @@ var game =
 					game.ready_track();
 				}, function(err)
 				{
-
+					console.log(err);
 				});
 			}
 
